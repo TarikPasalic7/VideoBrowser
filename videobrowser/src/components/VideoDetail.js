@@ -1,10 +1,14 @@
+
+import { Embed } from 'semantic-ui-react'
 const VideoDetail =()=>{
 
     return (
-        <div>
-   
-           VideoList
-        </div>
+        <Embed
+        id='125292332'
+        placeholder='/images/vimeo-example.jpg'
+        source='vimeo'
+        className='videodetail'
+      />
     )
    
    }

@@ -1,12 +1,16 @@
-const SearchBar =()=>{
+import React from 'react'
+import { Input,Button } from 'semantic-ui-react'
 
- return (
-     <div>
+const search =()=>{
 
-         SearchBar
-     </div>
- )
-
+    console.log("ispis")
 }
 
-export default SearchBar;
+const SearchBar =() => (
+  <div>
+     <Input  placeholder='Search...'  />
+     <Button content='Search' onClick={search} />
+  </div>
+)
+
+export default SearchBar
