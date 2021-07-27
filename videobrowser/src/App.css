@@ -13,3 +13,23 @@
  
   
 }
+
+.title{
+  font-size: 12px !important;
+  text-align: left !important;
+
+  width: 200px;
+ 
+}
+.date{
+  font-size: 14px;
+  color: black !important;
+  font-weight: bold;
+  width: 200px  !important;
+  text-align: left !important;
+}
+
+.channel{
+  width: 200px;
+  text-align: left !important;
+}

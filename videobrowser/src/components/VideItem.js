@@ -1,19 +1,18 @@
 import { Image, Item } from 'semantic-ui-react'
 
 
-const VideoItem =()=>{
+const VideoItem =({ytItem})=>{
 
     return (
-        <Item>
-      <Item.Image size='tiny' src='https://react.semantic-ui.com/images/wireframe/image.png' />
 
-      <Item.Content>
-        <Item.Header as='a'>Header</Item.Header>
-        <Item.Meta>Description</Item.Meta>
-        <Item.Description>
-          <Image src='https://react.semantic-ui.com/images/wireframe/short-paragraph.png' />
-        </Item.Description>
-        <Item.Extra>Additional Details</Item.Extra>
+        <Item>
+      <Item.Image  size='medium' src={ytItem.snippet.thumbnails.default.url}  />
+      {console.log(ytItem)}
+      <Item.Content className="imgitem">
+        <Item.Header  className="title" as='a'>{ytItem.snippet.title}</Item.Header>
+        <Item.Meta className="channel" >Channel: {ytItem.snippet.channelTitle}</Item.Meta>
+   
+        <Item.Extra  className="date" >{ytItem.snippet.publishTime}</Item.Extra>
       </Item.Content>
     </Item>
     )
