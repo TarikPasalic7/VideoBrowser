@@ -1,12 +1,12 @@
 
 import { Embed } from 'semantic-ui-react'
-const VideoDetail =()=>{
-
+const VideoDetail =({SelectedVideo})=>{
+{console.log(SelectedVideo)}
     return (
         <Embed
-        id='125292332'
-        placeholder='/images/vimeo-example.jpg'
-        source='vimeo'
+        id={SelectedVideo?SelectedVideo.id.videoId:""}
+   placeholder={SelectedVideo?SelectedVideo.snippet.thumbnails.default.url:""}
+        source='youtube'
         className='videodetail'
       />
     )

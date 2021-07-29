@@ -7,9 +7,13 @@ import VideoList from './components/VideoList';
  import SearchBar from './components/SearchBar';
  import 'semantic-ui-css/semantic.min.css'
  import {Container,Grid} from 'semantic-ui-react'
- const url='https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=surfing&key=AIzaSyBsdqbzqhlBBJSBoV6lNBS25Qt45JkC9TA'
+ const url='https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=surfing&key=AIzaSyBsdqbzqhlBBJSBoV6lNBS25Qt45JkC9TA';
+
 function App() {
 const [ytList,setytList]=useState([]);
+const [isSelectedVideo,setIsSelectedVideo]=useState([true,false,false,false,false]);
+const [SelectedVideo,setSelectedVideo]=useState(null);
+
   useEffect(() => {
     let list=[];
     async function fetchMyAPI() {
@@ -20,6 +24,14 @@ const [ytList,setytList]=useState([]);
      list.push(item);
     });
     setytList(list);
+   list.forEach((element,index) => {
+     if(isSelectedVideo[index]===true)
+     {
+       setSelectedVideo(element);
+
+     }
+   });
+
     }
 
     fetchMyAPI()
@@ -31,7 +43,7 @@ const [ytList,setytList]=useState([]);
       <Container className="Appcontainer">
       <Grid>
     <Grid.Column floated='left' width={12} >
-    <VideoDetail/>
+    <VideoDetail SelectedVideo={SelectedVideo}/>
     </Grid.Column>
     <Grid.Column floated='right' width={3}>
     <VideoList ytList={ytList}/>
