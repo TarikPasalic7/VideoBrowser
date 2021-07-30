@@ -7,14 +7,19 @@ import VideoList from './components/VideoList';
  import SearchBar from './components/SearchBar';
  import 'semantic-ui-css/semantic.min.css'
  import {Container,Grid} from 'semantic-ui-react'
- const url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=surfing&key=${process.env.REACT_APP_API_KEY}`;
+ 
 
 function App() {
 const [ytList,setytList]=useState([]);
 const [isSelectedVideo,setIsSelectedVideo]=useState([true,false,false,false,false]);
 const [SelectedVideo,setSelectedVideo]=useState(null);
+const [search,setSearch]=useState("surfing");
+
+
 
   useEffect(() => {
+    console.log(search)
+    const url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${search}&key=${process.env.REACT_APP_API_KEY}`;
     let list=[];
     async function fetchMyAPI() {
       let response =  await axios(url);
@@ -35,10 +40,18 @@ const [SelectedVideo,setSelectedVideo]=useState(null);
     }
 
     fetchMyAPI()
-  }, [])
+  }, [search])
+
+ const searchVideos =(searchTemp)=>{
+  console.log("term",searchTemp)
+  setSearch(searchTemp)
+
+ }
+
+
   return (
     <div className="App">
-      <SearchBar/>
+      <SearchBar searchVideos={searchVideos} />
 
       <Container className="Appcontainer">
       <Grid>
