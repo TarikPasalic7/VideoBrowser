@@ -7,7 +7,7 @@ import VideoList from './components/VideoList';
  import SearchBar from './components/SearchBar';
  import 'semantic-ui-css/semantic.min.css'
  import {Container,Grid} from 'semantic-ui-react'
- const url='https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=surfing&key=AIzaSyBsdqbzqhlBBJSBoV6lNBS25Qt45JkC9TA';
+ const url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=surfing&key=${process.env.REACT_APP_API_KEY}`;
 
 function App() {
 const [ytList,setytList]=useState([]);
