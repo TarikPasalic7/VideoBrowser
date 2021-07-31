@@ -3,30 +3,31 @@ import { Input,Button } from 'semantic-ui-react'
 
 
 
-const SearchBar =({searchVideos,searchVideos1}) =>{
+const SearchBar =({searchVideos}) =>{
     const [word,setWord] =useState("");
     const search =(e)=>{
-
+        
         setWord(e.target.value)
         console.log("s",e.target.value)
      }
 
     const handleKeyPress = (e) => {
+        
         console.log("SDS")
         if(e.key === 'Enter'){
             
-          searchVideos(word);
+          searchVideos(e,word);
         }
       }
 
     return (
-  <div onKeyPress={handleKeyPress}>
+  <form onKeyPress={handleKeyPress} onSubmit={(e)=>searchVideos(e,word)}>
      <Input  placeholder='Search...' onChange={search} />
-     <Button content='Search' onClick={()=>searchVideos(word)}   />
+     <Button content='Search' type="submit"  />
     
    
 
-  </div>
+  </form>
 )}
-
+//onClick={()=>searchVideos(word)} 
 export default SearchBar

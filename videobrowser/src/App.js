@@ -29,20 +29,24 @@ const [search,setSearch]=useState("surfing");
      list.push(item);
     });
     setytList(list);
-   list.forEach((element,index) => {
-     if(isSelectedVideo[index]===true)
-     {
-       setSelectedVideo(element);
-
-     }
-   });
+    if(SelectedVideo===null){
+      list.forEach((element,index) => {
+        if(isSelectedVideo[index]===true)
+        {
+          setSelectedVideo(element);
+   
+        }
+      });
+    }
+  
 
     }
 
     fetchMyAPI()
   }, [search])
 
- const searchVideos =(searchTemp)=>{
+ const searchVideos =(e,searchTemp)=>{
+ e.preventDefault()
   console.log("term",searchTemp)
   setSearch(searchTemp)
 
