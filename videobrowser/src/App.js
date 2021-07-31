@@ -47,6 +47,12 @@ const [search,setSearch]=useState("surfing");
   setSearch(searchTemp)
 
  }
+ const selectItem =(itm)=>{
+  
+  setSelectedVideo(itm)
+   
+
+ }
 
 
   return (
@@ -56,10 +62,10 @@ const [search,setSearch]=useState("surfing");
       <Container className="Appcontainer">
       <Grid>
     <Grid.Column floated='left' width={12} >
-    <VideoDetail SelectedVideo={SelectedVideo}/>
+    <VideoDetail SelectedVideo={SelectedVideo} />
     </Grid.Column>
     <Grid.Column floated='right' width={3}>
-    <VideoList ytList={ytList}/>
+    <VideoList ytList={ytList} selectItem={selectItem}/>
     </Grid.Column>
   </Grid>
       

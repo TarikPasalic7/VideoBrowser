@@ -33,3 +33,7 @@
   width: 200px;
   text-align: left !important;
 }
+
+.hvr:hover{
+cursor: pointer;
+}
