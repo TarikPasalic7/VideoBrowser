@@ -2,11 +2,7 @@
   text-align: center;
 }
 
-.videodetail{
 
-  width: 500px;
-  height: 500px;
-}
 .Appcontainer{
 
   margin-top: 20px ;
@@ -36,4 +32,24 @@
 
 .hvr:hover{
 cursor: pointer;
+}
+.videodetail{
+  width: 1000px;
+ 
+  align-content: center;
+ margin-left: 40px auto;
+ background-color: rgb(229, 231, 235);
+}
+
+.mg{
+
+  margin-top: 15px;
+}
+.header{
+  font-weight: bold;
+  color: black;
+}
+
+.itemcontainer{
+  background-color: rgb(72, 110, 187) !important;
 }

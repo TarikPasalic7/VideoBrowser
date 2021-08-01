@@ -14,17 +14,18 @@ const [ytList,setytList]=useState([]);
 const [isSelectedVideo,setIsSelectedVideo]=useState([true,false,false,false,false]);
 const [SelectedVideo,setSelectedVideo]=useState(null);
 const [search,setSearch]=useState("surfing");
+const [word,setWord] =useState("");
 
 
 
   useEffect(() => {
-    console.log(search)
+ 
     const url=`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=${search}&key=${process.env.REACT_APP_API_KEY}`;
     let list=[];
     async function fetchMyAPI() {
       let response =  await axios(url);
       let items=response.data.items;
-     console.log(items)
+  
     items.forEach(item => {
      list.push(item);
     });
@@ -38,10 +39,9 @@ const [search,setSearch]=useState("surfing");
         }
       });
     }
-  
 
     }
-
+   
     fetchMyAPI()
   }, [search])
 
@@ -49,6 +49,7 @@ const [search,setSearch]=useState("surfing");
  e.preventDefault()
   console.log("term",searchTemp)
   setSearch(searchTemp)
+  setWord("");
 
  }
  const selectItem =(itm)=>{
@@ -57,15 +58,21 @@ const [search,setSearch]=useState("surfing");
    
 
  }
+ const searchChange =(e)=>{
+        
+  setWord(e.target.value)
+  console.log("s",e.target.value)
+}
+
 
 
   return (
     <div className="App">
-      <SearchBar searchVideos={searchVideos} />
+      <SearchBar searchVideos={searchVideos} word={word} searchChange={searchChange}/>
 
       <Container className="Appcontainer">
       <Grid>
-    <Grid.Column floated='left' width={12} >
+    <Grid.Column floated='left' width={12} className="videodetail mg">
     <VideoDetail SelectedVideo={SelectedVideo} />
     </Grid.Column>
     <Grid.Column floated='right' width={3}>

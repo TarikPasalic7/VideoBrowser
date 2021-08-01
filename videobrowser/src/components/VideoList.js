@@ -1,7 +1,6 @@
 
 import VideoItem from "./VideItem";
 import { Item } from 'semantic-ui-react'
-const list=[1,2,3,4,5];
 const VideoList =({ytList,selectItem})=>{
 
     return (

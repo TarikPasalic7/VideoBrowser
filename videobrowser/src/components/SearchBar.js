@@ -1,15 +1,10 @@
-import React,{useState} from 'react'
+import React from 'react'
 import { Input,Button } from 'semantic-ui-react'
 
 
 
-const SearchBar =({searchVideos}) =>{
-    const [word,setWord] =useState("");
-    const search =(e)=>{
-        
-        setWord(e.target.value)
-        console.log("s",e.target.value)
-     }
+const SearchBar =({searchVideos,word,searchChange}) =>{
+
 
     const handleKeyPress = (e) => {
         
@@ -22,7 +17,7 @@ const SearchBar =({searchVideos}) =>{
 
     return (
   <form onKeyPress={handleKeyPress} onSubmit={(e)=>searchVideos(e,word)}>
-     <Input  placeholder='Search...' onChange={search} />
+     <Input  placeholder='Search...' value={word} onChange={(e)=>searchChange(e)} />
      <Button content='Search' type="submit"  />
     
    
